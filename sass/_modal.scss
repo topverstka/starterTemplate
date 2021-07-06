@@ -1,0 +1,125 @@
+.modal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    transition: all 0.5s;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    &.modal--active{
+        z-index: 5;
+        .modal-overlay{
+            opacity: 0.74;
+        }
+    }
+}
+    
+.modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #292929;
+    opacity: 0;
+    transition: all 0.5s;
+}
+    
+.modal-window{
+    background-color: #111215;
+    padding: 30px;
+    position: absolute;
+    border-radius: 5px;
+    opacity: 0;
+    top: 30px;
+    visibility: hidden;
+    transform: scale(0);
+    transition: all 0.5s;
+    width: 90%;
+}
+    
+.modal-window--order{
+    text-align: center;
+    max-width: 320px;
+}
+    
+.modal-window--active{
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+}
+    
+.modal-window__title{
+    color: $accent;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+    
+.modal-window__descr{
+    color: #fff;
+    font-size: 13px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+    
+
+.modal-window__form-input{
+    background-color: #202429;
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 2px;
+    padding: 20px;
+    font-size: 16px;
+}
+    
+.btn--modal-form{
+    font-size: 16px;
+}
+    
+    
+
+@media (min-width: 992px){
+    .modal-window{
+        padding: 53px;
+        border-radius: 2px;
+        width: 62%;
+    }
+       
+    .modal-window--order{
+        max-width: 407px
+    }
+
+    .modal-window__title{
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+        
+    .modal-window__descr{
+        font-size: 16px;
+        margin-bottom: 33px;
+    }
+        
+    .modal-window__form-input{
+        padding: 32px;
+        font-size: 16px;
+        margin-bottom: 28px;
+        border-radius: 2px;
+    }
+        
+    .btn--modal-form{
+        font-size: 16px;
+        padding: 31px;
+    }
+}
+    
+    
+
+        
+        
+    
