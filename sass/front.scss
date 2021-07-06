@@ -1,0 +1,24 @@
+@import 'interface';
+@import 'grid';
+@import 'header';
+
+// Элементы
+@import 'elements/buttons';
+@import 'elements/callbackPhone';
+@import 'elements/forms';
+@import 'elements/swiper';
+@import 'elements/tables';
+@import 'elements/titles';
+
+
+// Секции
+@import 'sections/firstscreen';
+@import 'sections/why';
+@import 'sections/video';
+@import 'sections/quiz';
+@import 'sections/testimonials';
+@import 'sections/faq';
+
+
+@import 'modal';
+@import 'footer';
