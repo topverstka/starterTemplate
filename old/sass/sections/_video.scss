@@ -1,0 +1,115 @@
+.video-box{
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 2px solid $accent;
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+}
+    
+        
+.video__media{
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 101%;
+    height: 101%;
+}
+   
+
+
+.video__button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    display: none;
+    padding: 0;
+    width: 68px;
+    height: 48px;
+    border: none;
+    background-color: transparent;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+    
+
+.for-who-box__circle-decore{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 120px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    &::before{
+        content: '';
+        position: absolute;
+        border: 2px solid #ffd373;
+        left: -10px;
+        right: -10px;
+        top: -10px;
+        bottom: -10px;
+        border-radius: 50%;
+        animation: pulse 7s linear infinite;
+        opacity: 0;
+    }
+        
+    &::after{
+        content: '';
+        position: absolute;
+        border: 2px solid #ffd373;
+        left: -10px;
+        right: -10px;
+        top: -10px;
+        bottom: -10px;
+        border-radius: 50%;
+        animation: pulse 7s linear infinite;
+        opacity: 0;
+        animation-delay: 4s;
+    }
+        
+}
+    
+
+.for-who-box__circle{
+    width: 70px;
+    height: 70px;
+    background-color: #ffd373;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    &:after{
+        content: "";
+        display: block;
+        border: 10px solid transparent;
+        border-left: 15px solid #fff;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-19%);
+        top: 24px;
+    }  
+}
+    
+
+
+@media (min-width: 992px){
+    .for-who-box__circle{
+        background-color: rgba(255, 211, 115, 0.8);
+        transition: all 0.2s;
+        &:hover{
+            background-color: rgba(255, 211, 115, 1);
+        }
+             
+    }
+        
+    .video-box{
+        max-width: 900px;
+        padding-bottom: 0;
+        height: 500px;
+    }     
+}
+    

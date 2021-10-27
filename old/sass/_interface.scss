@@ -43,12 +43,12 @@ body{
     margin: 0;
     padding: 0;
     height: 100%;
-    color: $textcolor;
+    color: #232323;
     font-family: $default_font;
     font-size: $fontsize;
     position: relative;
     color: $textcolor;
-    &._lock{
+    &.stop{
         overflow: hidden;
     }
 }

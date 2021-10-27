@@ -1,0 +1,39 @@
+table{
+    margin-bottom: 20px;
+    border-spacing: 0;
+    width: 100%;
+}
+    
+td{
+    border-bottom: 0.3125VW solid $accent;
+    padding: 4.6875VW;
+    font-size: 4.375VW;
+    text-align: center;
+    &:first-child{
+        text-align: left
+    }   
+}
+    
+
+tr:first-child{
+    td{
+        font-size: 5VW;
+        font-family: $titles_font;
+    }
+}
+
+
+
+@media (min-width: 992px){
+    tr{
+        &:first-child{
+            td{
+                font-size: 18px
+            }  
+        }
+    }
+        
+    td{
+        font-size: 16px;
+    }
+}

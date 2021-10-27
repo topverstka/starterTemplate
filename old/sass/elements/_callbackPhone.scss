@@ -1,0 +1,37 @@
+.callback-phone{
+    right: 20px;
+    bottom: 20px;
+    left: auto;
+    top: auto;
+    position: fixed;
+    color: #fff;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: rgba(212,176,66, 0.8);
+    z-index: 1;
+    svg{
+        width: 25px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
+
+
+@media (min-width: 992px){
+    .callback-phone{
+        right: 40px;
+        bottom: 40px;
+        width: 70px;
+        height: 70px;
+        transition: all 0.2s;
+        &:hover{
+            background-color: rgba(212,176,66, 1);
+        }
+        svg{
+            width: 32px;
+        }
+    }
+}

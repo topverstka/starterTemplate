@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>Project name</title>
 	<meta name="viewport" content="width=device-width">
-	<meta name="description" content="Сайт для клиник">
+	<meta name="description" content="Описание проекта">
 	<link rel="icon" href="./img/favicon.ico">
 	<link rel="stylesheet" href="./css/normalize.css">
 	<link rel="stylesheet" href="./css/aos.css">
@@ -25,9 +25,7 @@
 				<!-- Логотип -->
 				<div class="header__logo header__logo--pc">
 					<a class="header__logo-img" href="#">
-						<object type="image/svg+xml" data="./img/logo.svg">
-							<img src="./img/logo.svg" alt="Logo">
-						</object>
+						<img src="./img/logo.svg" alt="Logo">
 					</a>
 					<p class="header__logo-descr header__logo-descr--pc">Описание</p>
 				</div>
@@ -189,7 +187,7 @@
 					</li>
 				</ul>
 
-				<a class="btn btn--accent btn--full" data-modal-open="order-modal" href="#">Призыв к действию</a>
+				<a class="btn btn--accent btn--full btn--modal btn--modal-order" href="#">Призыв к действию</a>
 				
 				<!-- Изображение доп объекта -->
 				<div class="first-screen__hero">
@@ -570,8 +568,9 @@
 
 	<!-- Модальное окно -->
 	<div class="modal">
+		<div class="modal-overlay"></div>
 
-		<div class="modal-window" id="order-modal">
+		<div class="modal-window modal-window--order">
 			<h3 class="modal-window__title">Оставьте заявку</h3>
 			<p class="modal-window__descr">И мы перезвоним вам в течении 5 минут</p>
 			<form action="#" class="modal-window__form">
@@ -581,8 +580,16 @@
 			</form>
 		</div>
 
-		<div class="modal-window" id="privacy-modal">
+		<div class="modal-window modal-window--privacy">
 			<h3 class="modal-window__title">Политика конфиденциальности</h3>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
+			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
 			<p class="modal-window__descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ex ab voluptas reprehenderit adipisci! Veniam ad impedit temporibus atque rem, amet fugiat voluptas pariatur reprehenderit!</p>
 		</div>
 

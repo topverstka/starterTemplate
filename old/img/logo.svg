@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="755" height="574" viewBox="0 0 755 574">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 81px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #fff;
+        text-anchor: middle;
+        font-family: "Capture it(RUS BY LYAJKA)";
+        text-transform: uppercase;
+      }
+
+      .cls-2 {
+        font-size: 91px;
+      }
+
+      .cls-3 {
+        fill: #e2bf53;
+        fill-rule: evenodd;
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" x="298.812" y="0" width="155.25" height="78.438" filterUnits="userSpaceOnUse">
+      <feImage preserveAspectRatio="none" x="298.812" y="0" width="155.25" height="78.438" result="image" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTU1LjI1IiBoZWlnaHQ9Ijc4LjQzOCIgdmlld0JveD0iMCAwIDE1NS4yNSA3OC40MzgiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50KTsKICAgICAgfQogICAgPC9zdHlsZT4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50IiB4MT0iNi44NzMiIHgyPSIxNDguMzc3IiB5Mj0iNzguNDM4IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2YzYjUyNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNkMTkyMGIiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjE1NS4yNSIgaGVpZ2h0PSI3OC40MzgiLz4KPC9zdmc+Cg=="/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <text class="cls-1" transform="translate(380.494 382.919) scale(3.759)"><tspan x="0">TOP</tspan></text>
+  <text  class="cls-2" transform="translate(376.459 573.193) scale(1.733 1.6)"><tspan x="0">ВЕРСТКА</tspan></text>
+  <path data-name="Фигура 1" class="cls-3" d="M454.069,78.424L376.445,0,298.821,78.424"/>
+</svg>
