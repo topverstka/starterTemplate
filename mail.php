@@ -64,4 +64,3 @@ function send_mail($to, $body, $email, $filepath, $filename)
   $multipart .= $file."--".$boundary."--\r\n";
   mail($to, $subject, $multipart, $headers);
 }
-?>

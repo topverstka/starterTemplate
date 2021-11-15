@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     var d = document;
 
-
-
     // Quiz
     var quizForm = d.querySelector( ".quiz" ),
     quizFieldset = quizForm.querySelectorAll( "fieldset" ),

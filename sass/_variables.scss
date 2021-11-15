@@ -1,0 +1,48 @@
+// Пользовательские переменные
+:root {
+    --ffMain: sans-serif;
+    --ffHeader: sans-serif;
+    --minHover: 768px; // Минимальное разрешения экрана для hover-эффекта
+    --tr: .4s;  // Плавность перехода
+}
+
+$ffMain: var(--ffMain);
+$ffHeader: var(--ffHeader);
+$minHover: var(--minHover);
+$tr: var(--tr);
+
+// Разрешения экрана (адаптив)
+:root {
+    --laptop-l: 1440px;
+    --laptop: 1024px;
+    --tablet: 768px;
+    --mobile-l: 425px;
+    --mobile-m: 375px;
+    --mobile-s: 320px;
+}
+
+$laptop-l: var(--laptop-l);
+$laptop: var(--laptop);
+$tablet: var(--tablet);
+$mobile-l: var(--mobile-l);
+$mobile-m: var(--mobile-m);
+$mobile-s: var(--mobile-s);
+
+// Цвета
+:root {
+    --main: #6C7785;
+    --second: #58626F;
+    --accent: #FF755D;
+    --accent-hover: #ff917e;
+    --outline: #C0C0C0;
+    --bg-page: #FEF1EB;
+    --bg-section: #E0CCC7;
+}
+
+$main: var(--main);
+$second: var(--second);
+$accent: var(--accent);
+$accent-hover: var(--accent-hover);
+$outline: var(--outline);
+$bg-page: var(--bg-page);
+$bg-section: var(--bg-section);
