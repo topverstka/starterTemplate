@@ -1,0 +1,86 @@
+@import '_fonts'; // Шрифты
+@import '_variables'; // Переменные
+@import '_reset'; // Сброс css
+
+// Миксин для перевода px в vw
+@function vw($px) {
+    @return $px/(1920 / 100vw);
+}
+
+// Общие стили для страниц
+// Стиль выделения элементов на странице
+// ::selection {
+//     // background: #CCF2E9;
+//     background: $accent-hover;
+//     color: #fff;
+// }
+// ::-moz-selection {
+//     // background: #CCF2E9;
+//     background: $accent-hover;
+//     color: #fff;
+// }
+
+// Стиль скроллбара
+// body::-webkit-scrollbar {
+//     position: fixed;
+//     top: 0;
+//     right: 0;
+//     width: .6em;
+//     height: 100%;
+// }
+
+// body::-webkit-scrollbar-track {
+//     background: #FEF1EB;
+// }
+
+// body::-webkit-scrollbar-thumb {
+//     background-color: #CAC1BC;
+// }
+
+body {
+    font-family: $ffMain;
+    color: $main;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5;
+    background: $bg-page;
+
+    &._lock {
+        overflow: hidden;
+    }
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+@import '_grid'; // Сетка
+
+// Компоненты
+@import 'components/_buttons';
+@import 'components/_forms';
+@import 'components/_modal';
+ 
+// Текстовые компоненты
+@import 'components/text/_text';
+@import 'components/text/_titles';
+
+// Секции
+@import 'sections/_header';
+@import 'sections/_footer';
+
+// Страницы
+
+// Библиотеки
+@import 'libs/_aos';
+@import 'libs/_lightgallery';
+@import 'libs/_swiper';
+
+// Анимация
+@import 'components/_animation';

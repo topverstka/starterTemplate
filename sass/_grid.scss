@@ -1,17 +1,23 @@
-.container{
-    width: 90%;
+.container {
+    max-width: $container;
+    width: 100%;
+    padding: 0 24px;
     margin: 0 auto;
-}
 
-@media (min-width: 992px){
-    .container{
-        position: relative;
-    }  
-}
-    
-@media (min-width: 1440px){
-    .container{
-        width: 62%;
+    @media (max-width: $mobile-l) {
+        padding: 0 16px;
     }
 }
-    
+
+
+.section {
+    margin: 62px 0;
+
+    @media (max-width: $tablet) {
+        margin: 40px 0;
+    }
+
+    @media (max-width: $mobile-m) {
+        margin: 30px 0;
+    }
+}

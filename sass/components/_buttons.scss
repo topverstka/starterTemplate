@@ -1,0 +1,189 @@
+// Основная кнопка
+.btn {
+    width: fit-content;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    padding: 16px 32px;
+    background: $accent;
+    border-radius: 8px;
+    overflow: hidden;
+
+    &:hover {
+        
+        @media (min-width: $minHover) {
+            background: $accent-hover;
+        }
+    }
+
+    &:active {
+        background: $accent-active;
+    }
+}
+
+.btn_disabled {
+    color: $second;
+    background: #F8F8F8;
+    pointer-events: none;
+}
+
+// Кнопки выбора 
+.choice-chips {
+    width: fit-content;
+    font-size: 14px;
+    font-weight: 600;
+    color: $main;
+    padding: 12px 24px;
+    background: #F8F8F8;
+    border-radius: 100px;
+
+    &:hover {
+        
+        @media (min-width: $minHover) {
+            color: $accent;
+            background: #EFF7F5;
+        }
+    }
+
+    &:active {
+        color: #fff;
+        background: $accent;
+    }
+
+    &._active {
+        color: #fff;
+        background: $accent;
+    }
+}
+
+
+.choice-chips_disabled {
+    color: $second;
+    background: #F8F8F8;
+    pointer-events: none;
+}
+
+// Ссылки
+.link {
+    
+    &:hover {
+        
+        @media (min-width: $minHover) {
+            color: $accent-hover;
+        }
+    }
+
+    &:active {
+        color: $accent-active;
+    }
+}
+
+// Ссылка со стрелкой
+.link-arrow {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.link-arrow__text {
+    font-size: 14px;
+    font-weight: 600;
+    transition: $tr;
+}
+
+.link-arrow__icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin: 0 0 0 8px;
+
+    & svg,
+    & svg path {
+        transition: $tr;
+    }
+}
+
+// Включает hover-эффект при наведении на ссылку
+.link-arrow_hover:hover {
+
+    @media (min-width: $minHover) {
+        
+        & .link-arrow__text {
+            color: $accent;
+        }
+    
+        & .link-arrow__icon {
+
+            & svg {
+                animation: linkArrowIconHover .4s linear forwards;
+
+                @keyframes linkArrowIconHover {
+                    0% {
+                        transform: translate(0, 0);
+                    }
+                    50% {
+                        transform: translate(4px, 0);
+                    }
+                    100% {
+                        transform: translate(0, 0);
+                    }
+                }
+            }
+
+            & svg path {
+                fill: $accent;
+            }
+        }
+    }
+}
+
+// Стрелка в слайдерах
+.slider-arrow {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $accent;
+    border-radius: 50%;
+
+    &:hover {
+        
+        @media (min-width: $minHover) {
+            background: $accent-hover;
+        }
+    }
+
+    &:active {
+        background: $accent-active;
+    }
+
+    &.swiper-button-disabled {
+        background: #F8F8F8; 
+        // pointer-events: none;
+
+        & svg path {
+            fill: $second;
+        }
+    }
+
+    & svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+// Кнопк/ссылка "Подробнее" у разделов
+.section-more {
+    display: none;
+
+    @media (max-width: $tablet) {
+        width: 100%;
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px 0;
+        margin: 26px 0 0 0;
+    }
+}
