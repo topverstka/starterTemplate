@@ -80,6 +80,51 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="modal" id="callback">
+		<div class="modal__body">
+			<div class="modal__content">
+				<h2 class="modal__title">Обратный звонок</h2>
+				<form action="#" method="POST" class="form modal__form" id="modal__form">
+					<div class="form-elem">
+						<input class="form-elem__area _required" type="text" id="user_name" name="name" placeholder=" ">
+						<label class="form-elem__label" for="name">Имя</label>
+					</div>
+					<div class="form-elem">
+						<input class="form-elem__area _required" type="tel" id="user_phone" name="phone"
+							placeholder=" ">
+						<label class="form-elem__label" for="phone">Номер телефона</label>
+					</div>
+					<div class="form-elem">
+						<input class="form-elem__area _required" type="email" id="user_email" name="email"
+							placeholder=" ">
+						<label class="form-elem__label" for="email">E-mail</label>
+					</div>
+					<div class="form-elem">
+						<input class="form-elem__area" type="text" id="user_company" name="company" placeholder=" ">
+						<label class="form-elem__label" for="company">Название вашей компании</label>
+					</div>
+					<div class="form-elem">
+						<input class="form-elem__area" type="text" id="user_working_pos" name="working_pos"
+							placeholder=" ">
+						<label class="form-elem__label" for="working_pos">Ваша должность</label>
+					</div>
+					<div class="form-elem">
+						<textarea class="form-elem__area" type="text" id="user_message" name="message"
+							placeholder=" "></textarea>
+						<label class="form-elem__label" for="message">Комментарий</label>
+					</div>
+					<span class="modal__attention">Нажав на кнопку, вы соглашаетесь с обработкой персональных
+						данных.</span>
+					<button class="btn modal__submit" type="submit">Проконсультироваться</button>
+				</form>
+				<button class="modal__close">
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</div>
+	</div>
 
 	<!-- Подключение скриптов -->
 	<script src="./js/libs/swiper-bundle.min.js"></script>

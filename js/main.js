@@ -169,6 +169,27 @@ function menu() {
 // Функции для модальных окон
 modal()
 function modal() {
+    
+    // Открытие модальных окон при клике по кнопке
+    openModal()
+    function openModal() {
+        const btnsOpenModal = document.querySelectorAll('[data-modal-open]');
+    
+        for (let i = 0; i < btnsOpenModal.length; i++) {
+            const btn = btnsOpenModal[i];
+    
+            btn.addEventListener('click', (e) => {
+                const dataBtn = btn.dataset.modalOpen;
+                const modalThatOpens = document.querySelector(`#${dataBtn}`)
+    
+                btn.classList.add('modal-show');
+                modalThatOpens.classList.add('_show');
+                // bodyLock(true)
+                window.location.hash = dataBtn
+            });
+        }
+    }
+
     // Открытие модального окна, если в url указан его id
     openModalHash()
     function openModalHash() {
@@ -178,12 +199,12 @@ function modal() {
     
             if (modal) {
                 modal.classList.add('_show');
-                bodyLock(true)
-                closeWhenClickingOnBg(`#${hash} .modal__content`, modal);
+                // bodyLock(true)
             }
         }
     }
 
+    // Показываем/убираем модальное окно при изменения хеша в адресной строке
     checkHash()
     function checkHash() {
         window.addEventListener('hashchange', e => {
@@ -194,10 +215,30 @@ function modal() {
             if (modal && hash != '') {
                 modal.classList.add('_show');
                 bodyLock(true)
-                // closeWhenClickingOnBg(`#${hash} .modal__content`, modal);
             }
             else {
                 bodyLock(false)
+            }
+        })
+    }
+    
+    // Сброс id модального окна в url
+    function resetHash() {
+        const windowTop = window.pageYOffset
+        window.location.hash = ''
+        window.scrollTo(0, windowTop)
+    }
+    
+    // Закрытие модального окна при клике по заднему фону
+    closeModalWhenClickingOnBg()
+    function closeModalWhenClickingOnBg() {
+        document.addEventListener('click', (e) => {
+            const target = e.target
+            const modal = document.querySelector('.modal._show')
+
+            if (modal && target.classList.contains('modal__body')) {
+                modal.classList.remove('_show')
+                resetHash()
             }
         })
     }
@@ -212,7 +253,7 @@ function modal() {
     
             closeThisModal.addEventListener('click', () => {
                 modal.classList.remove('_show')
-                bodyLock(false)
+                // bodyLock(false)
                 resetHash()
             })
         }
@@ -228,82 +269,10 @@ function modal() {
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     modal.classList.remove('_show')
-                    bodyLock(false)
+                    // bodyLock(false)
                     resetHash()
                 }
             })
         }
-    }
-    
-    // Сброс id модального окна в url
-    function resetHash() {
-        const windowTop = window.pageYOffset
-        window.location.hash = ''
-        window.scrollTo(0, windowTop)
-    }
-    
-    // Открытие модальных окон
-    openModal()
-    function openModal() {
-        const btnsOpenModal = document.querySelectorAll('[data-modal-open]');
-    
-        for (let i = 0; i < btnsOpenModal.length; i++) {
-            const btn = btnsOpenModal[i];
-    
-            btn.addEventListener('click', (e) => {
-                const dataBtn = btn.dataset.modalOpen;
-                const modalThatOpens = document.querySelector(`#${dataBtn}`)
-    
-                btn.classList.add('modal-show');
-                modalThatOpens.classList.add('_show');
-                bodyLock(true)
-                closeWhenClickingOnBg(`#${dataBtn} .modal__content`, modalThatOpens);
-                window.location.hash = dataBtn
-            });
-        }
-    }
-    
-    // Закрытие модального окна при клике по заднему фону
-    function closeWhenClickingOnBg(itemArray, itemParent, classShow = '_show') {
-        document.addEventListener('click', (e) => {
-            let itemElems = document.querySelectorAll(itemArray)
-    
-            for (let i = 0; i < itemElems.length; i++) {
-                const item = itemElems[i];
-    
-                const target = e.target,
-                    itsItem = target == item || item.contains(target),
-                    itemIsShow = item.classList.contains(classShow);
-    
-                if (itemParent) {
-                    const itsItemParent = target == itemParent || itemParent.contains(target),
-                        itemParentIsShow = itemParent.classList.contains(classShow);
-    
-                    if (!itsItem && itsItemParent && itemParentIsShow) {
-                        itemParent.classList.remove(classShow);
-    
-                        if (body.classList.contains('_lock')) {
-                            bodyLock(false)
-                        }
-    
-                        if (window.location.hash === '#' + itemParent.getAttribute('id')) {
-                            resetHash()
-                        }
-                    }
-                } else {
-                    if (!itsItem && itemIsShow) {
-                        item.classList.remove(classShow);
-                        if (body.classList.contains('_lock')) {
-                            bodyLock(false)
-                        }
-    
-                        if (window.location.hash === '#' + itemParent.getAttribute('id')) {
-                            resetHash()
-                        }
-                    }
-                }
-    
-            }
-        })
     }
 }
