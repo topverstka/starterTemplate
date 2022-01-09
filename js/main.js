@@ -167,7 +167,7 @@ function menu() {
 // });
 
 // Функции для модальных окон
-// modal()
+modal()
 function modal() {
     // Открытие модального окна, если в url указан его id
     openModalHash()
@@ -182,6 +182,24 @@ function modal() {
                 closeWhenClickingOnBg(`#${hash} .modal__content`, modal);
             }
         }
+    }
+
+    checkHash()
+    function checkHash() {
+        window.addEventListener('hashchange', e => {
+            const hash = window.location.hash
+            const modal = document.querySelector(`.modal${hash}`)
+
+            if (find('.modal._show')) find('.modal._show').classList.remove('_show')
+            if (modal && hash != '') {
+                modal.classList.add('_show');
+                bodyLock(true)
+                // closeWhenClickingOnBg(`#${hash} .modal__content`, modal);
+            }
+            else {
+                bodyLock(false)
+            }
+        })
     }
     
     // Закрытие модальных окон при клике по крестику
