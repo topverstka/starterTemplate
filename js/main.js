@@ -1,7 +1,7 @@
 
 // Служебные переменные
 const d = document;
-const body = d.querySelector('body');
+const body = document.querySelector('body');
 
 // Служебные функции
 
