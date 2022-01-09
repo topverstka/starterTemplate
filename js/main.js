@@ -137,34 +137,43 @@ function menu() {
 	})
 }
 
-// const advantagesSlider = new Swiper('.advantages__slider', {
-// 	spaceBetween: 16,
-// 	centeredSlides: true,
-// 	// slidesPerView: 1.33, // Кол-во показываемых слайдов
-// 	// autoHeight: true,
-// 	// slidesPerView: 'auto',
-// 	// loop: true, // Бесконечный слайдер
-// 	// freeMode: true, // Слайдеры не зафиксированны
+const swiper = new Swiper('.swiper-container', {
+  
+  slidesPerView: 1, // Кол-во показываемых слайдов
+  spaceBetween: 0, // Расстояние между слайдами
+  loop: true, // Бесконечный слайдер
+  freeMode: true, // Слайдеры не зафиксированны
+  centeredSlides: false, // Размещать слайдеры по центру
 
-// 	breakpoints: {
-// 		1200: {
-// 			slidesPerView: 'auto',
-// 		},
-// 		700: {
-// 			slidesPerView: 1.1,
-// 		},
-// 		0: {
-// 			slidesPerView: 1.08,
-// 			spaceBetween: 8,
-// 			centeredSlides: false,
-// 		}
-// 	},
+  autoplay: { // автопрокрутка
+      delay: 5000, // задержка
+  },
 
-// 	// navigation: {
-// 	// 	nextEl: '.swiper__arrow-next',
-// 	// 	prevEl: '.swiper__arrow-prev',
-// 	// }
-// });
+  breakpoints: {
+    1200: {
+
+    },
+    700: {
+
+    },
+    400: {
+
+    }
+  },
+
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  navigation: {
+    nextEl: '.swiper__arrow-next',
+    prevEl: '.swiper__arrow-prev',
+  },
+
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
 
 // Функции для модальных окон
 modal()
@@ -211,13 +220,6 @@ function modal() {
         })
     }
 
-    // Сброс id модального окна в url
-    function resetHash() {
-        const windowTop = window.pageYOffset
-        window.location.hash = ''
-        window.scrollTo(0, windowTop)
-    }
-
     // Закрытие модального окна при клике по заднему фону
     closeModalWhenClickingOnBg()
     function closeModalWhenClickingOnBg() {
@@ -254,6 +256,13 @@ function modal() {
                 if (e.key === 'Escape') closeModal(modal)
             })
         }
+    }
+
+    // Сброс id модального окна в url
+    function resetHash() {
+        const windowTop = window.pageYOffset
+        window.location.hash = ''
+        window.scrollTo(0, windowTop)
     }
 
     // Открытие модального окна
