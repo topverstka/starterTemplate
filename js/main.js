@@ -171,8 +171,8 @@ modal()
 function modal() {
     
     // Открытие модальных окон при клике по кнопке
-    openModal()
-    function openModal() {
+    openModalWhenClickingOnBtn()
+    function openModalWhenClickingOnBtn() {
         const btnsOpenModal = document.querySelectorAll('[data-modal-open]');
     
         for (let i = 0; i < btnsOpenModal.length; i++) {
@@ -180,11 +180,9 @@ function modal() {
     
             btn.addEventListener('click', (e) => {
                 const dataBtn = btn.dataset.modalOpen;
-                const modalThatOpens = document.querySelector(`#${dataBtn}`)
-    
-                btn.classList.add('modal-show');
-                modalThatOpens.classList.add('_show');
-                // bodyLock(true)
+                const modal = document.querySelector(`#${dataBtn}`)
+
+                openModal(modal)
                 window.location.hash = dataBtn
             });
         }
@@ -197,10 +195,7 @@ function modal() {
             const hash = window.location.hash.substring(1)
             const modal = document.querySelector(`.modal#${hash}`)
     
-            if (modal) {
-                modal.classList.add('_show');
-                // bodyLock(true)
-            }
+            if (modal) openModal(modal)
         }
     }
 
@@ -212,23 +207,17 @@ function modal() {
             const modal = document.querySelector(`.modal${hash}`)
 
             if (find('.modal._show')) find('.modal._show').classList.remove('_show')
-            if (modal && hash != '') {
-                modal.classList.add('_show');
-                bodyLock(true)
-            }
-            else {
-                bodyLock(false)
-            }
+            if (modal && hash != '') openModal(modal)
         })
     }
-    
+
     // Сброс id модального окна в url
     function resetHash() {
         const windowTop = window.pageYOffset
         window.location.hash = ''
         window.scrollTo(0, windowTop)
     }
-    
+
     // Закрытие модального окна при клике по заднему фону
     closeModalWhenClickingOnBg()
     function closeModalWhenClickingOnBg() {
@@ -236,13 +225,10 @@ function modal() {
             const target = e.target
             const modal = document.querySelector('.modal._show')
 
-            if (modal && target.classList.contains('modal__body')) {
-                modal.classList.remove('_show')
-                resetHash()
-            }
+            if (modal && target.classList.contains('modal__body')) closeModal(modal)
         })
     }
-    
+
     // Закрытие модальных окон при клике по крестику
     closeModalWhenClickingOnCross()
     function closeModalWhenClickingOnCross() {
@@ -252,13 +238,11 @@ function modal() {
             const closeThisModal = modal.querySelector('.modal__close')
     
             closeThisModal.addEventListener('click', () => {
-                modal.classList.remove('_show')
-                // bodyLock(false)
-                resetHash()
+                closeModal(modal)
             })
         }
     }
-    
+
     // Закрытие модальных окон при нажатии по клавише ESC
     closeModalWhenClickingOnESC()
     function closeModalWhenClickingOnESC() {
@@ -266,13 +250,22 @@ function modal() {
         for (let i = 0; i < modalElems.length; i++) {
             const modal = modalElems[i];
     
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    modal.classList.remove('_show')
-                    // bodyLock(false)
-                    resetHash()
-                }
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape') closeModal(modal)
             })
         }
+    }
+
+    // Открытие модального окна
+    function openModal(modal) {
+        modal.classList.add('_show')
+        bodyLock(true)
+    }
+
+    // Закрытие модального окна
+    function closeModal(modal) {
+        modal.classList.remove('_show')
+        bodyLock(false)
+        resetHash()
     }
 }
