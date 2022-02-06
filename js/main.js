@@ -66,7 +66,7 @@ function validationForm() {
 }
 
 // Отправка формы
-// sumbitForm()
+sumbitForm()
 function sumbitForm() {
     const form = find('.modal__form')
 

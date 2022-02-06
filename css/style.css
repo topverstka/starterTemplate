@@ -186,34 +186,273 @@ body._lock {
   }
 }
 
-.btn {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff;
-  padding: 16px 32px;
-  background: var(--accent);
-  -webkit-border-radius: 8px;
-          border-radius: 8px;
-  overflow: hidden;
-}
-
-@media (min-width: 769px) {
-  .btn:hover {
-    background: var(--accent-hover);
+/* Стили анимации пульсации кругов */
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+    opacity: 0;
   }
 }
 
-.btn:active {
-  background: var(--accent-active);
+/* Стили кроссбраузерной анимации пульсации кругов */
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+    opacity: 0;
+  }
 }
 
-.btn_disabled {
-  color: var(--second);
-  background: #F8F8F8;
-  pointer-events: none;
+/* Стили анимации блика для кнопок */
+@keyframes sheens {
+  0%, 79% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: rotateZ(60deg) translate(-5em, 7.5em);
+    transform: rotateZ(60deg) translate(-5em, 7.5em);
+  }
+  80% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: rotateZ(60deg) translate(-5em, 7.5em);
+    transform: rotateZ(60deg) translate(-5em, 7.5em);
+  }
+  95% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: rotateZ(60deg) translate(1em, -11em);
+    transform: rotateZ(60deg) translate(1em, -11em);
+  }
+  to {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: rotateZ(60deg) translate(1em, -9em);
+    transform: rotateZ(60deg) translate(1em, -9em);
+  }
+}
+
+/* Стили кроссбраузерной анимации блика для кнопок */
+@-webkit-keyframes sheens {
+  0%, 79% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: rotateZ(60deg) translate(-5em, 7.5em);
+    transform: rotateZ(60deg) translate(-5em, 7.5em);
+  }
+  80% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: rotateZ(60deg) translate(-5em, 7.5em);
+    transform: rotateZ(60deg) translate(-5em, 7.5em);
+  }
+  95% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: rotateZ(60deg) translate(1em, -11em);
+    transform: rotateZ(60deg) translate(1em, -11em);
+  }
+  to {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: rotateZ(60deg) translate(1em, -9em);
+    transform: rotateZ(60deg) translate(1em, -9em);
+  }
+}
+
+/* Стили анимации полоски в квизе */
+@keyframes moveIt {
+  from {
+    background-position: 0 center;
+  }
+  to {
+    background-position: 48px center;
+  }
+}
+
+/* Стили кроссбраузерной анимации полоски в квизе */
+@-webkit-keyframes moveIt {
+  from {
+    background-position: 0 center;
+  }
+  to {
+    background-position: 48px center;
+  }
+}
+
+@-webkit-keyframes showElem {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showElem {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes sendPreloader {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes sendPreloader {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/*
+* Пример использования компонента кнопки
+* <button class="btn btn_primary">Акцентная кнопка</button>
+* <button class="btn btn_second btn_icon">Кнопка с иконкой вторичного цвета</button>
+* <button class="btn btn_primary btn_icon btn_icon-arrow btn_icon-left">Кнопка с иконкой с левой стороны акцентного цвета</button>
+*/
+:root {
+  --btn-primary-default: #467EF3;
+  --btn-primary-pressed: #3865C2;
+  --btn-primary-disabled: #B5CBFA;
+  --btn-second-default: #D1DFFC;
+  --btn-second-pressed: #BDC9E3;
+  --btn-second-disabled: #99B8F8;
+}
+
+.btn {
+  width: 100%;
+  height: 48px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 9px;
+  -webkit-border-radius: var(--radius);
+          border-radius: var(--radius);
+  -webkit-transition: var(--tr);
+  -o-transition: var(--tr);
+  transition: var(--tr);
+}
+
+.btn_primary {
+  color: #fff;
+  background: var(--btn-primary-default);
+}
+
+@media (min-width: 769px) {
+  .btn_primary:hover {
+    -webkit-box-shadow: 0px 5px 20px rgba(70, 126, 243, 0.5);
+            box-shadow: 0px 5px 20px rgba(70, 126, 243, 0.5);
+  }
+}
+
+.btn_primary:active {
+  background: var(--btn-primary-pressed);
+}
+
+.btn_second {
+  color: #467EF3;
+  background: var(--btn-second-default);
+}
+
+@media (min-width: 769px) {
+  .btn_second:hover {
+    -webkit-box-shadow: 0px 5px 20px rgba(70, 126, 243, 0.5);
+            box-shadow: 0px 5px 20px rgba(70, 126, 243, 0.5);
+  }
+}
+
+.btn_second:active {
+  background: var(--btn-second-pressed);
+}
+
+.btn_linear {
+  padding: 5px;
+}
+
+@media (min-width: 769px) {
+  .btn_linear:hover {
+    color: var(--btn-primary-pressed);
+  }
+}
+
+.btn_linear:active {
+  color: var(--btn-primary-pressed);
+}
+
+.btn_icon {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: left;
+}
+
+.btn_icon svg {
+  width: 24px;
+  height: 24px;
+  margin-left: 12px;
+}
+
+.btn_icon-left svg {
+  margin-left: 0;
+  margin-right: 12px;
+}
+
+.btn_center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (min-width: 769px) {
+  .link:hover {
+    color: var(--accent-hover);
+  }
+}
+
+.link:active {
+  color: var(--accent-active);
 }
 
 .choice-chips {
@@ -250,93 +489,6 @@ body._lock {
   color: var(--second);
   background: #F8F8F8;
   pointer-events: none;
-}
-
-@media (min-width: 769px) {
-  .link:hover {
-    color: var(--accent-hover);
-  }
-}
-
-.link:active {
-  color: var(--accent-active);
-}
-
-.link-arrow {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.link-arrow__text {
-  font-size: 14px;
-  font-weight: 600;
-  -webkit-transition: var(--tr);
-  -o-transition: var(--tr);
-  transition: var(--tr);
-}
-
-.link-arrow__icon {
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  margin: 0 0 0 8px;
-}
-
-.link-arrow__icon svg,
-.link-arrow__icon svg path {
-  -webkit-transition: var(--tr);
-  -o-transition: var(--tr);
-  transition: var(--tr);
-}
-
-@media (min-width: 769px) {
-  .link-arrow_hover:hover .link-arrow__text {
-    color: var(--accent);
-  }
-  .link-arrow_hover:hover .link-arrow__icon svg {
-    -webkit-animation: linkArrowIconHover .4s linear forwards;
-            animation: linkArrowIconHover .4s linear forwards;
-  }
-  @-webkit-keyframes linkArrowIconHover {
-    0% {
-      -webkit-transform: translate(0, 0);
-              transform: translate(0, 0);
-    }
-    50% {
-      -webkit-transform: translate(4px, 0);
-              transform: translate(4px, 0);
-    }
-    100% {
-      -webkit-transform: translate(0, 0);
-              transform: translate(0, 0);
-    }
-  }
-  @keyframes linkArrowIconHover {
-    0% {
-      -webkit-transform: translate(0, 0);
-              transform: translate(0, 0);
-    }
-    50% {
-      -webkit-transform: translate(4px, 0);
-              transform: translate(4px, 0);
-    }
-    100% {
-      -webkit-transform: translate(0, 0);
-              transform: translate(0, 0);
-    }
-  }
-  .link-arrow_hover:hover .link-arrow__icon svg path {
-    fill: var(--accent);
-  }
 }
 
 .slider-arrow {
@@ -380,22 +532,6 @@ body._lock {
 .slider-arrow svg {
   width: 24px;
   height: 24px;
-}
-
-.section-more {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .section-more {
-    width: 100%;
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    text-align: center;
-    padding: 6px 0;
-    margin: 26px 0 0 0;
-  }
 }
 
 .form {
@@ -3322,155 +3458,5 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   }
   .swiper-btn-next:hover::after {
     border-left: 15px solid #fff;
-  }
-}
-
-/* Стили анимации пульсации кругов */
-@keyframes pulse {
-  0% {
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  100% {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
-    opacity: 0;
-  }
-}
-
-/* Стили кроссбраузерной анимации пульсации кругов */
-@-webkit-keyframes pulse {
-  0% {
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  100% {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
-    opacity: 0;
-  }
-}
-
-/* Стили анимации блика для кнопок */
-@keyframes sheens {
-  0%, 79% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    -webkit-transform: rotateZ(60deg) translate(-5em, 7.5em);
-    transform: rotateZ(60deg) translate(-5em, 7.5em);
-  }
-  80% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    -webkit-transform: rotateZ(60deg) translate(-5em, 7.5em);
-    transform: rotateZ(60deg) translate(-5em, 7.5em);
-  }
-  95% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    -webkit-transform: rotateZ(60deg) translate(1em, -11em);
-    transform: rotateZ(60deg) translate(1em, -11em);
-  }
-  to {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    -webkit-transform: rotateZ(60deg) translate(1em, -9em);
-    transform: rotateZ(60deg) translate(1em, -9em);
-  }
-}
-
-/* Стили кроссбраузерной анимации блика для кнопок */
-@-webkit-keyframes sheens {
-  0%, 79% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    -webkit-transform: rotateZ(60deg) translate(-5em, 7.5em);
-    transform: rotateZ(60deg) translate(-5em, 7.5em);
-  }
-  80% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    -webkit-transform: rotateZ(60deg) translate(-5em, 7.5em);
-    transform: rotateZ(60deg) translate(-5em, 7.5em);
-  }
-  95% {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    -webkit-transform: rotateZ(60deg) translate(1em, -11em);
-    transform: rotateZ(60deg) translate(1em, -11em);
-  }
-  to {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    -webkit-transform: rotateZ(60deg) translate(1em, -9em);
-    transform: rotateZ(60deg) translate(1em, -9em);
-  }
-}
-
-/* Стили анимации полоски в квизе */
-@keyframes moveIt {
-  from {
-    background-position: 0 center;
-  }
-  to {
-    background-position: 48px center;
-  }
-}
-
-/* Стили кроссбраузерной анимации полоски в квизе */
-@-webkit-keyframes moveIt {
-  from {
-    background-position: 0 center;
-  }
-  to {
-    background-position: 48px center;
-  }
-}
-
-@-webkit-keyframes showElem {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes showElem {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes sendPreloader {
-  from {
-    -webkit-transform: translate(-50%, -50%) rotate(0);
-            transform: translate(-50%, -50%) rotate(0);
-  }
-  to {
-    -webkit-transform: translate(-50%, -50%) rotate(360deg);
-            transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-@keyframes sendPreloader {
-  from {
-    -webkit-transform: translate(-50%, -50%) rotate(0);
-            transform: translate(-50%, -50%) rotate(0);
-  }
-  to {
-    -webkit-transform: translate(-50%, -50%) rotate(360deg);
-            transform: translate(-50%, -50%) rotate(360deg);
   }
 }

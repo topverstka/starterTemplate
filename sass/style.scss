@@ -62,25 +62,25 @@ body {
 
 @import '_grid'; // Сетка
 
+// Анимация
+@import './_animation';
+
 // Компоненты
-@import 'components/_buttons';
-@import 'components/_forms';
-@import 'components/_modal';
+@import './components/_buttons';
+@import './components/_forms';
+@import './components/_modal';
  
 // Текстовые компоненты
-@import 'components/text/_text';
-@import 'components/text/_titles';
+@import './components/text/_text';
+@import './components/text/_titles';
 
 // Секции
-@import 'sections/_header';
-@import 'sections/_footer';
+@import './sections/_header';
+@import './sections/_footer';
 
 // Страницы
 
 // Библиотеки
-@import 'libs/_aos';
-@import 'libs/_lightgallery';
-@import 'libs/_swiper';
-
-// Анимация
-@import 'components/_animation';
+@import './libs/_aos';
+@import './libs/_lightgallery';
+@import './libs/_swiper';

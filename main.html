@@ -32,9 +32,6 @@
 			</a>
 			<h1 style="font-size: 24px;font-weight: 600;">Стартовый шаблон для верстки</h1>
 		</div>
-
-		<button data-modal-open="consultation">Open consultation</button>
-		<button data-modal-open="callback">Open callback</button>
 	</div>
 
 	<!-- Модальные окна -->
@@ -44,35 +41,30 @@
 				<h2 class="modal__title">Запись на консультацию</h2>
 				<form action="#" method="POST" class="form modal__form" id="modal__form">
 					<div class="form-elem">
-						<input class="form-elem__area _required" type="text" id="user_name" name="name" placeholder=" ">
-						<label class="form-elem__label" for="name">Имя</label>
+						<input class="form-elem__area _required" type="text" id="user_name" name="user_name" placeholder=" ">
+						<label class="form-elem__label" for="user_name">Имя</label>
 					</div>
 					<div class="form-elem">
-						<input class="form-elem__area _required" type="tel" id="user_phone" name="phone"
-							placeholder=" ">
-						<label class="form-elem__label" for="phone">Номер телефона</label>
+						<input class="form-elem__area _required" type="tel" id="user_phone" name="user_phone" placeholder=" ">
+						<label class="form-elem__label" for="user_phone">Номер телефона</label>
 					</div>
 					<div class="form-elem">
-						<input class="form-elem__area _required" type="email" id="user_email" name="email"
-							placeholder=" ">
-						<label class="form-elem__label" for="email">E-mail</label>
+						<input class="form-elem__area _required" type="email" id="user_email" name="user_email" placeholder=" ">
+						<label class="form-elem__label" for="user_email">E-mail</label>
 					</div>
 					<div class="form-elem">
-						<input class="form-elem__area" type="text" id="user_company" name="company" placeholder=" ">
-						<label class="form-elem__label" for="company">Название вашей компании</label>
+						<input class="form-elem__area" type="text" id="user_company" name="user_company" placeholder=" ">
+						<label class="form-elem__label" for="user_company">Название вашей компании</label>
 					</div>
 					<div class="form-elem">
-						<input class="form-elem__area" type="text" id="user_working_pos" name="working_pos"
-							placeholder=" ">
-						<label class="form-elem__label" for="working_pos">Ваша должность</label>
+						<input class="form-elem__area" type="text" id="user_working_pos" name="user_working_pos" placeholder=" ">
+						<label class="form-elem__label" for="user_working_pos">Ваша должность</label>
 					</div>
 					<div class="form-elem">
-						<textarea class="form-elem__area" type="text" id="user_message" name="message"
-							placeholder=" "></textarea>
-						<label class="form-elem__label" for="message">Комментарий</label>
+						<textarea class="form-elem__area" type="text" id="user_message" name="user_message" placeholder=" "></textarea>
+						<label class="form-elem__label" for="user_message">Комментарий</label>
 					</div>
-					<span class="modal__attention">Нажав на кнопку, вы соглашаетесь с обработкой персональных
-						данных.</span>
+					<span class="modal__attention">Нажав на кнопку, вы соглашаетесь с обработкой персональных данных.</span>
 					<button class="btn modal__submit" type="submit">Проконсультироваться</button>
 				</form>
 				<button class="modal__close">
